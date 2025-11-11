@@ -12,49 +12,49 @@
 .card {
     width: 25%;
     height: 200px;
-    background-image: url("../assets/images/cards/empty-card.png");
+    background-image: url("../../assets/images/cards/empty-card.webp");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .flipped[data-cardid="1"] {
-    background-image: url("../assets/images/cards/card-1.png");
+    background-image: url("../../assets/images/cards/card-1.webp");
 }
 
 .flipped[data-cardid="2"] {
-    background-image: url("../assets/images/cards/card-2.png");
+    background-image: url("../../assets/images/cards/card-2.webp");
 }
 
 .flipped[data-cardid="3"] {
-    background-image: url("../assets/images/cards/card-3.png");
+    background-image: url("../../assets/images/cards/card-3.webp");
 }
 
 .flipped[data-cardid="4"] {
-    background-image: url("../assets/images/cards/card-4.png");
+    background-image: url("../../assets/images/cards/card-4.webp");
 }
 
 .flipped[data-cardid="5"] {
-    background-image: url("../assets/images/cards/card-5.png");
+    background-image: url("../../assets/images/cards/card-5.webp");
 }
 
 .flipped[data-cardid="6"] {
-    background-image: url("../assets/images/cards/card-6.png");
+    background-image: url("../../assets/images/cards/card-6.webp");
 }
 
 .flipped[data-cardid="7"] {
-    background-image: url("../assets/images/cards/card-7.png");
+    background-image: url("../../assets/images/cards/card-7.webp");
 }
 
 .flipped[data-cardid="8"] {
-    background-image: url("../assets/images/cards/card-8.png");
+    background-image: url("../../assets/images/cards/card-8.webp");
 }
 
 .flipped[data-cardid="9"] {
-    background-image: url("../assets/images/cards/card-9.png");
+    background-image: url("../../assets/images/cards/card-9.webp");
 }
 
 .flipped[data-cardid="10"] {
-    background-image: url("../assets/images/cards/card-10.png");
+    background-image: url("../../assets/images/cards/card-10.webp");
 }
 
 .game-settings {
@@ -66,4 +66,5 @@
     background-color: rgba(100, 31, 22, 1);
     padding: 100px;
     gap: 30px;
+    border-radius: 32px;
 }

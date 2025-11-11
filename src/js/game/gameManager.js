@@ -6,12 +6,15 @@ import { timer as gameTimer } from "./gameTimer.js";
 export function gameManager(container, seconds, numberOfCards) {
     let openCards = [];
     let matchedCards = [];
+    let timer = null;
+    let isProcessing = false;
 
     function start(seconds, numberOfCards) {
         const timerContainer = document.getElementById("timer");
         const cardsList = gameGenerateRandomCards(numberOfCards);
 
-        gameTimer(seconds, timerContainer).then(() => {
+        timer = gameTimer(seconds, timerContainer);
+        timer.promise.then(() => {
             reset();
         });
 
@@ -41,31 +44,52 @@ export function gameManager(container, seconds, numberOfCards) {
             }
 
             if (matchedCards.length === numberOfCards * 2) {
+                if (timer) {
+                    timer.stop();
+                }
                 reset();
             }
         }
 
         container.addEventListener("click", (e) => {
             if (e.target.classList.contains("card")) {
-                if (openCards.length <= 1) {
+                const isAlreadyFlipped = e.target.classList.contains("flipped");
+                const isAlreadyMatched = matchedCards.includes(e.target);
+                
+                if (isProcessing || isAlreadyFlipped || isAlreadyMatched) {
+                    return;
+                }
+
+                if (openCards.length < 2) {
                     flip(e.target);
                     openCards.push(e.target);
-                } else {
-                    matched(openCards);
-                    unflip(openCards);
-                    openCards = [];
+                    
+                    if (openCards.length === 2) {
+                        isProcessing = true;
+                        setTimeout(() => {
+                            matched(openCards);
+                            unflip(openCards);
+                            openCards = [];
+                            isProcessing = false;
+                        }, 1000);
+                    }
                 }
             }
         });
     }
 
-    start(seconds, numberOfCards);
-
     function reset() {
+        if (timer) {
+            timer.stop();
+            timer = null;
+        }
         const cards = document.querySelectorAll(".card");
         cards.forEach(element => element.remove());
         openCards = [];
         matchedCards = [];
+
         Init();
     }
+
+    start(seconds, numberOfCards);
 }

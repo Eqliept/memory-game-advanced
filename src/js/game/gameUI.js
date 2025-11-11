@@ -10,7 +10,7 @@ export function gameUI(container) {
     const gameTimerInput = el("input", {classes: ["timer__input"], attrs: [{"placeholder": "Количество секунд"}]});
     const gameCardsInput = el("input", {classes: ["cards__input"], attrs: [{"placeholder": "Количество карточек"}]});
 
-    const gameSettingsSubmit = el("button", {classes: ["game-settings__submit"], text: "Начать игру"});
+    const gameSettingsSubmit = el("button", {classes: ["game-settings__submit", "btn", "btn-success"], text: "Начать игру"});
 
     gameCardsWrapper.append(gameCardsInput);
     gameTimerWrapper.append(gameTimerInput);
