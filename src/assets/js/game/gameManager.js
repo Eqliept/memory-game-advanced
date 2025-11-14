@@ -1,4 +1,4 @@
-import { Init } from "../main.js";
+import { init } from "../main.js";
 import { el } from "../utils/dom.js";
 import { gameGenerateRandomCards } from "./gameGenerateRandomCards.js";
 import { timer as gameTimer } from "./gameTimer.js";
@@ -88,7 +88,7 @@ export function gameManager(container, seconds, numberOfCards) {
         openCards = [];
         matchedCards = [];
 
-        Init();
+        init();
     }
 
     start(seconds, numberOfCards);

@@ -2,8 +2,8 @@ import { gameUI } from "./game/gameUI.js";
 
 const container = document.getElementById("app");
 
-export function Init() {
+export function init() {
     gameUI(container);
 }
 
-Init();
+init();
